@@ -200,6 +200,8 @@ void Cdatabase::showDatabase(QTableWidget* table)
 
     }
     while(!file->atEnd());
+
+    delete file;
 }
 
 

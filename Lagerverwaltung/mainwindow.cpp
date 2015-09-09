@@ -136,22 +136,24 @@ void MainWindow::on_ButtonAdd_clicked()
     {
         database->itemAdd(lastBarcode, 1);
     }
-    database->showDatabase(ui->tableWidget);
+    on_ButtonShow_clicked();
+    ui->LabelState->setText("Artikel hinzugefügt");
 }
 
 void MainWindow::on_ButtonDelete_clicked()
 {
     database->itemDelete(lastBarcode, 1);
-    database->showDatabase(ui->tableWidget);
+    on_ButtonShow_clicked();
+    ui->LabelState->setText("Artikel entfernt");
 }
 
 void MainWindow::on_ButtonShow_clicked()
 {
-    ui->LabelBarcodeNum->setText("Datenbank wird geladen...");
+    ui->LabelState->setText("Datenbank wird geladen...");
 
     database->showDatabase(ui->tableWidget);
 
-    ui->LabelBarcodeNum->setText("Datenbank geladen!");
+    ui->LabelState->setText("Datenbank geladen!");
 }
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)

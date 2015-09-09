@@ -41,6 +41,7 @@ public:
     QPushButton *ButtonAdd;
     QPushButton *ButtonDelete;
     QLabel *LabelBarcodeNum;
+    QLabel *LabelState;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_2;
     QPushButton *ButtonShow;
@@ -96,6 +97,12 @@ public:
         LabelBarcodeNum->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(LabelBarcodeNum);
+
+        LabelState = new QLabel(horizontalLayoutWidget_2);
+        LabelState->setObjectName(QStringLiteral("LabelState"));
+        LabelState->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(LabelState);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -167,6 +174,7 @@ public:
         ButtonAdd->setText(QApplication::translate("MainWindow", "Add to database", 0));
         ButtonDelete->setText(QApplication::translate("MainWindow", "Delete from Database", 0));
         LabelBarcodeNum->setText(QString());
+        LabelState->setText(QApplication::translate("MainWindow", "Bereit", 0));
         ButtonShow->setText(QApplication::translate("MainWindow", "Show Database", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Barcode", 0));
