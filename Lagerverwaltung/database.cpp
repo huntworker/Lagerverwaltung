@@ -161,3 +161,26 @@ void Cdatabase::itemDelete(QString barcode, int quantity)
     delete tempFileStream;
     delete tempFile;
 }
+
+
+void Cdatabase::showDatabase(QTableWidget* table)
+{
+    QString inBarcode = "";
+    QString inQuantity = 0;
+
+    file = new QFile("database.csv");
+    file->open(QIODevice::ReadWrite);
+    FileStream = new QTextStream(file);
+
+    QString inBuffer = file->readLine();
+
+
+}
+
+
+
+
+
+
+
+//EOF

@@ -139,3 +139,10 @@ void MainWindow::on_ButtonDelete_clicked()
 {
     database->itemDelete(lastBarcode, 1);
 }
+
+void MainWindow::on_ButtonShow_clicked()
+{
+    ui->LabelBarcodeNum->setText("Datenbank wird geladen...");
+
+    database->showDatabase(ui->tableWidget);
+}

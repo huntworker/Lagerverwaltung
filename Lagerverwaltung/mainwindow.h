@@ -32,6 +32,8 @@ private slots:
 
     void on_ButtonDelete_clicked();
 
+    void on_ButtonShow_clicked();
+
 private:
     void initActionsConnections();
     void RxBuffer(QString);

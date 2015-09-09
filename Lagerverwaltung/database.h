@@ -4,6 +4,7 @@
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+#include <QTableWidget>
 
 class Cdatabase
 {
@@ -12,6 +13,7 @@ public:
     ~Cdatabase();
     void itemAdd(QString barcode, int quantity);
     void itemDelete(QString barcode, int quantity);
+    void showDatabase(QTableWidget* table);
 
 
 private:
