@@ -37,6 +37,8 @@ private slots:
 
     void on_ButtonShow_clicked();
 
+    void on_tableWidget_cellClicked(int row, int column);
+
 private:
     void initActionsConnections();
     void RxBuffer(QString);

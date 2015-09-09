@@ -164,6 +164,8 @@ void Cdatabase::itemDelete(QString barcode, int quantity)
 /* Einträge der Datenbank anzeigen */
 void Cdatabase::showDatabase(QTableWidget* table)
 {
+    table->setRowCount(1);
+
     QString inBarcode = "";
     QString inQuantity = 0;
 
@@ -195,6 +197,7 @@ void Cdatabase::showDatabase(QTableWidget* table)
         // neue Zeile anhängen
         linecount++;
         table->insertRow(linecount);
+
     }
     while(!file->atEnd());
 }

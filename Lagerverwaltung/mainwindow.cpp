@@ -136,11 +136,13 @@ void MainWindow::on_ButtonAdd_clicked()
     {
         database->itemAdd(lastBarcode, 1);
     }
+    database->showDatabase(ui->tableWidget);
 }
 
 void MainWindow::on_ButtonDelete_clicked()
 {
     database->itemDelete(lastBarcode, 1);
+    database->showDatabase(ui->tableWidget);
 }
 
 void MainWindow::on_ButtonShow_clicked()
@@ -150,4 +152,15 @@ void MainWindow::on_ButtonShow_clicked()
     database->showDatabase(ui->tableWidget);
 
     ui->LabelBarcodeNum->setText("Datenbank geladen!");
+}
+
+void MainWindow::on_tableWidget_cellClicked(int row, int column)
+{
+    QString clickedBarcode;
+    clickedBarcode = ui->tableWidget->item(row,0)->text();      // geklickten Barcode speichern
+    ui->tableWidget->setCurrentCell(row,0);
+
+    ui->LabelBarcodeNum->setText(clickedBarcode);       // geklickten Barcode anzeigen
+    lastBarcode = clickedBarcode;                       // und als letzten Barcode festlegen
+
 }
