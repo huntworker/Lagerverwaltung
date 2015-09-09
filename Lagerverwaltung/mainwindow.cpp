@@ -12,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->tableWidget->setColumnWidth(0,COL_WIDTH_BARCODE);
+    ui->tableWidget->setColumnWidth(1,COL_WIDTH_QUANTITY);
+
     ui->statusBar->showMessage(tr("Disconnected"));
 
     serial = new QSerialPort(this);
@@ -145,4 +148,6 @@ void MainWindow::on_ButtonShow_clicked()
     ui->LabelBarcodeNum->setText("Datenbank wird geladen...");
 
     database->showDatabase(ui->tableWidget);
+
+    ui->LabelBarcodeNum->setText("Datenbank geladen!");
 }

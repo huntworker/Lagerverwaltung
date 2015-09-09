@@ -119,10 +119,10 @@ public:
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        if (tableWidget->rowCount() < 5)
-            tableWidget->setRowCount(5);
+        if (tableWidget->rowCount() < 1)
+            tableWidget->setRowCount(1);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setRowCount(5);
+        tableWidget->setRowCount(1);
 
         verticalLayout_2->addWidget(tableWidget);
 

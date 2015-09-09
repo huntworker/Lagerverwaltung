@@ -30,8 +30,6 @@ Cdatabase::~Cdatabase()
     //delete FileStream;
     //delete tempFileStream;
     //delete tempFile;
-
-    // Hier sollte jetzt ein Kommentar von Mathias stehen.
 }
 
 void Cdatabase::itemAdd(QString barcode, int quantity)
@@ -163,18 +161,42 @@ void Cdatabase::itemDelete(QString barcode, int quantity)
 }
 
 
+/* Einträge der Datenbank anzeigen */
 void Cdatabase::showDatabase(QTableWidget* table)
 {
     QString inBarcode = "";
     QString inQuantity = 0;
 
+    // Datei öffnen und zum Lesen vorbereiten
     file = new QFile("database.csv");
     file->open(QIODevice::ReadWrite);
-    FileStream = new QTextStream(file);
 
-    QString inBuffer = file->readLine();
+    int32_t linecount = 0;
 
+    do
+    {
+        // Zeile einlesen
+        QString inBuffer = file->readLine();
+        inBuffer.chop(1);                       // delete '\n'
 
+        // Schleife verlassen, falls Dateiende erreicht (verbesserungswürdig?)
+        if(inBuffer.isEmpty())
+            break;
+
+        // eingelesenen String in Barcode und Quantity aufteilen
+        QStringList bufferList = inBuffer.split(',');
+        inBarcode = bufferList.at(0);
+        inQuantity = bufferList.at(1);
+
+        // Barcode und Quantity in Tabelle einfügen
+        table->setItem(linecount,0,new QTableWidgetItem(inBarcode));
+        table->setItem(linecount,1,new QTableWidgetItem(inQuantity));
+
+        // neue Zeile anhängen
+        linecount++;
+        table->insertRow(linecount);
+    }
+    while(!file->atEnd());
 }
 
 

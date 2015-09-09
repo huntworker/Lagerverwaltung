@@ -1,3 +1,6 @@
+#define COL_WIDTH_BARCODE   160
+#define COL_WIDTH_QUANTITY  80
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
