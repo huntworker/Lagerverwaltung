@@ -30,6 +30,8 @@ Cdatabase::~Cdatabase()
     //delete FileStream;
     //delete tempFileStream;
     //delete tempFile;
+
+    // Hier sollte jetzt ein Kommentar von Mathias stehen.
 }
 
 void Cdatabase::itemAdd(QString barcode, int quantity)
