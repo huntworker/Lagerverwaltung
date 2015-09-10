@@ -159,6 +159,15 @@ void MainWindow::on_ButtonShow_clicked()
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
 {
     QString clickedBarcode;
+
+    if (ui->tableWidget->item(row,0) == NULL)
+    {
+        // leeres Feld ausgewählt -> Item hinzufügen
+        ui->tableWidget->setItem(row,0,new QTableWidgetItem(0));
+        ui->tableWidget->setItem(row,1,new QTableWidgetItem(0));
+        ui->tableWidget->insertRow(row+1);
+    }
+
     clickedBarcode = ui->tableWidget->item(row,0)->text();      // geklickten Barcode speichern
     ui->tableWidget->setCurrentCell(row,0);
 
