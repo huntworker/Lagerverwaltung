@@ -181,6 +181,13 @@ void Cdatabase::showDatabase(QTableWidget* table)
         QString inBuffer = file->readLine();
         inBuffer.chop(1);                       // delete '\n'
 
+        if (inBuffer.contains("Barcode,Quantity", Qt::CaseInsensitive))
+        {
+            // Kopfzeile
+            // -> überspringen
+            continue;
+        }
+
         // Schleife verlassen, falls Dateiende erreicht (verbesserungswürdig?)
         if(inBuffer.isEmpty())
             break;
