@@ -53,7 +53,8 @@ void Cdatabase::itemAdd(QString barcode, int quantity)
     {
         QString inBuffer = file->readLine();
 
-        inBuffer.chop(1);                       // delete '\n'
+        inBuffer = inBuffer.trimmed(); // delete '\r', '\n', ' ' at end of String
+
         if (inBuffer.isEmpty())
         {
             *tempFileStream << "Barcode,Quantity" << endl;
@@ -113,7 +114,8 @@ void Cdatabase::itemDelete(QString barcode, int quantity)
     {
         QString inBuffer = file->readLine();
 
-        inBuffer.chop(1);                       // delete '\n'
+        inBuffer = inBuffer.trimmed(); // delete '\r', '\n', ' ' at end of String
+
         if (inBuffer.isEmpty())
         {
             *tempFileStream << "Barcode,Quantity";
@@ -179,7 +181,8 @@ void Cdatabase::showDatabase(QTableWidget* table)
     {
         // Zeile einlesen
         QString inBuffer = file->readLine();
-        inBuffer.chop(1);                       // delete '\n'
+
+        inBuffer = inBuffer.trimmed(); // delete '\r', '\n', ' ' at end of String
 
         if (inBuffer.contains("Barcode,Quantity", Qt::CaseInsensitive))
         {
