@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->statusBar->showMessage(tr("Disconnected"));
 
+    readingMode = ModeNormal;
+
     serial = new QSerialPort(this);
 
     settings = new SettingsDialog;
@@ -171,9 +173,23 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
     }
 
     clickedBarcode = ui->tableWidget->item(row,0)->text();      // geklickten Barcode speichern
-    ui->tableWidget->setCurrentCell(row,0);
+
+    if (column != 0)
+    {
+        ui->tableWidget->setCurrentCell(row,0);         // Zellenauswahl auf Barcode versetzen
+    }
 
     ui->LabelBarcodeNum->setText(clickedBarcode);       // geklickten Barcode anzeigen
     lastBarcode = clickedBarcode;                       // und als letzten Barcode festlegen
 
+}
+
+void MainWindow::on_ButtonBatchAdd_clicked()
+{
+    readingMode = ModeAdd;
+}
+
+void MainWindow::on_ButtonBatchDelete_clicked()
+{
+    readingMode = ModeDelete;
 }

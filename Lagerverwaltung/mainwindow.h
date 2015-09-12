@@ -1,6 +1,8 @@
 #define COL_WIDTH_BARCODE   160
 #define COL_WIDTH_QUANTITY  80
 
+enum batchMode {ModeNormal, ModeAdd, ModeDelete};
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -39,10 +41,15 @@ private slots:
 
     void on_tableWidget_cellClicked(int row, int column);
 
+    void on_ButtonBatchAdd_clicked();
+
+    void on_ButtonBatchDelete_clicked();
+
 private:
     void initActionsConnections();
     void RxBuffer(QString);
     QString lastBarcode;
+    batchMode readingMode;
 
     Ui::MainWindow *ui;
     QSerialPort *serial;

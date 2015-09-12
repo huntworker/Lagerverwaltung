@@ -43,6 +43,8 @@ public:
     QLabel *LabelBarcodeNum;
     QLabel *LabelState;
     QSpacerItem *verticalSpacer;
+    QPushButton *ButtonBatchAdd;
+    QPushButton *ButtonBatchDelete;
     QVBoxLayout *verticalLayout_2;
     QPushButton *ButtonShow;
     QTableWidget *tableWidget;
@@ -107,6 +109,16 @@ public:
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout->addItem(verticalSpacer);
+
+        ButtonBatchAdd = new QPushButton(horizontalLayoutWidget_2);
+        ButtonBatchAdd->setObjectName(QStringLiteral("ButtonBatchAdd"));
+
+        verticalLayout->addWidget(ButtonBatchAdd);
+
+        ButtonBatchDelete = new QPushButton(horizontalLayoutWidget_2);
+        ButtonBatchDelete->setObjectName(QStringLiteral("ButtonBatchDelete"));
+
+        verticalLayout->addWidget(ButtonBatchDelete);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
@@ -175,6 +187,8 @@ public:
         ButtonDelete->setText(QApplication::translate("MainWindow", "Delete from Database", 0));
         LabelBarcodeNum->setText(QString());
         LabelState->setText(QApplication::translate("MainWindow", "Bereit", 0));
+        ButtonBatchAdd->setText(QApplication::translate("MainWindow", "BatchAdd", 0));
+        ButtonBatchDelete->setText(QApplication::translate("MainWindow", "BatchDelete", 0));
         ButtonShow->setText(QApplication::translate("MainWindow", "Show Database", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Barcode", 0));
