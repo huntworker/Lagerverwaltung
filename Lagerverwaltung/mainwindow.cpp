@@ -186,28 +186,46 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 
 void MainWindow::on_ButtonBatchAdd_clicked()
 {
-    if (readingMode == ModeAdd)
-    {
-        readingMode = ModeNormal;
-        ui->ButtonBatchAdd->setText("BatchAdd");
-    }
-    else
-    {
+    if (readingMode != ModeAdd)
         readingMode = ModeAdd;
-        ui->ButtonBatchAdd->setText("go to normal mode");
-    }
+    else
+        readingMode = ModeNormal;
+    cleanup();
 }
 
 void MainWindow::on_ButtonBatchDelete_clicked()
 {
-    if (readingMode == ModeDelete)
-    {
-        readingMode = ModeNormal;
-        ui->ButtonBatchDelete->setText("BatchDelete");
-    }
-    else
-    {
+    if (readingMode != ModeDelete)
         readingMode = ModeDelete;
-        ui->ButtonBatchDelete->setText("go to normal mode");
+    else
+        readingMode = ModeNormal;
+    cleanup();
+}
+
+void MainWindow::cleanup()
+{
+    switch(readingMode)
+    {
+        case ModeNormal:
+        {
+            ui->ButtonAdd->show();
+            ui->ButtonDelete->show();
+            ui->ButtonBatchAdd->setText("BatchAdd");
+            ui->ButtonBatchDelete->setText("BatchDelete");
+        }; break;
+        case ModeAdd:
+        {
+            ui->ButtonAdd->hide();
+            ui->ButtonDelete->hide();
+            ui->ButtonBatchAdd->setText("go to normal mode");
+            ui->ButtonBatchDelete->setText("BatchDelete");
+        }; break;
+        case ModeDelete:
+        {
+            ui->ButtonAdd->hide();
+            ui->ButtonDelete->hide();
+            ui->ButtonBatchAdd->setText("BatchAdd");
+            ui->ButtonBatchDelete->setText("go to normal mode");
+        }; break;
     }
 }

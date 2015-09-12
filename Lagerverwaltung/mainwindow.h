@@ -48,6 +48,7 @@ private slots:
 private:
     void initActionsConnections();
     void RxBuffer(QString);
+    void cleanup();
     QString lastBarcode;
     batchMode readingMode;
 
