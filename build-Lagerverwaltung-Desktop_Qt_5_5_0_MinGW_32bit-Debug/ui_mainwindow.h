@@ -100,6 +100,7 @@ public:
 
         ButtonBatchAdd = new QPushButton(centralWidget);
         ButtonBatchAdd->setObjectName(QStringLiteral("ButtonBatchAdd"));
+        ButtonBatchAdd->setMinimumSize(QSize(210, 0));
 
         gridLayout_2->addWidget(ButtonBatchAdd, 4, 0, 1, 2);
 
