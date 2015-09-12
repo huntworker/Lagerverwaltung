@@ -186,10 +186,28 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 
 void MainWindow::on_ButtonBatchAdd_clicked()
 {
-    readingMode = ModeAdd;
+    if (readingMode == ModeAdd)
+    {
+        readingMode = ModeNormal;
+        ui->ButtonBatchAdd->setText("BatchAdd");
+    }
+    else
+    {
+        readingMode = ModeAdd;
+        ui->ButtonBatchAdd->setText("go to normal mode");
+    }
 }
 
 void MainWindow::on_ButtonBatchDelete_clicked()
 {
-    readingMode = ModeDelete;
+    if (readingMode == ModeDelete)
+    {
+        readingMode = ModeNormal;
+        ui->ButtonBatchDelete->setText("BatchDelete");
+    }
+    else
+    {
+        readingMode = ModeDelete;
+        ui->ButtonBatchDelete->setText("go to normal mode");
+    }
 }
