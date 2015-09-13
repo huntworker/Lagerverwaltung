@@ -2,9 +2,11 @@
 #include "ui_mainwindow.h"
 #include "settingsdialog.h"
 #include "database.h"
+#include "stdint.h"
 
 #include <QMessageBox>
 #include <QFile>
+#include <QFontDatabase>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,17 +14,22 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Barcodeschrift hinzufügen, um Barcodes grafisch anzuzeigen
+    QFontDatabase BarcodeFontDatabase;
+    BarcodeFontDatabase.addApplicationFont("c39hrp24dhtt.ttf");
+    ui->LabelBarcodeNum->setFont(BarcodeFontDatabase.font("c39hrp24dhtt","Any",30));
+
+    // Spaltenbreite der Zellen einstellen
     ui->tableWidget->setColumnWidth(0,COL_WIDTH_BARCODE);
     ui->tableWidget->setColumnWidth(1,COL_WIDTH_QUANTITY);
 
+    // Anzeige der Statusleiste auf "Disconnected" einstellen
     ui->statusBar->showMessage(tr("Disconnected"));
 
+    // Initialisierungen
     readingMode = ModeNormal;
-
     serial = new QSerialPort(this);
-
     settings = new SettingsDialog;
-
     database = new Cdatabase();
 
     ui->actionConnect->setEnabled(true);
@@ -31,10 +38,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     initActionsConnections();
 
+    // Verbindungen zum Hardware-Slot herstellen
     connect(serial, SIGNAL(error(QSerialPort::SerialPortError)), this, SLOT(handleError(QSerialPort::SerialPortError)));
 
     connect(serial, SIGNAL(readyRead()), this, SLOT(readData()));
 
+    // aktuellen Datenbankinhalt anzeigen
     database->showDatabase(ui->tableWidget);
 }
 

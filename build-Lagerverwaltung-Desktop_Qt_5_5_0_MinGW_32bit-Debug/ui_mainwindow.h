@@ -93,7 +93,7 @@ public:
         LabelBarcodeNum = new QLabel(centralWidget);
         LabelBarcodeNum->setObjectName(QStringLiteral("LabelBarcodeNum"));
         QFont font;
-        font.setFamily(QStringLiteral("C39HrP24DhTt"));
+        font.setFamily(QStringLiteral("Arial"));
         font.setPointSize(30);
         font.setBold(false);
         font.setWeight(50);
