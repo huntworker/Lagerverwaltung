@@ -127,6 +127,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
         tableWidget->setSizePolicy(sizePolicy);
+        tableWidget->setAutoScroll(false);
         tableWidget->setRowCount(1);
 
         gridLayout_2->addWidget(tableWidget, 1, 2, 5, 1);
