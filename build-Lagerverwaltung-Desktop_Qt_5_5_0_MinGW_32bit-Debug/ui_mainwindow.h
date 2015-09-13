@@ -36,15 +36,15 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QGridLayout *gridLayout_2;
+    QLabel *LabelState;
+    QPushButton *ButtonShow;
     QPushButton *ButtonAdd;
     QPushButton *ButtonDelete;
-    QLabel *LabelState;
-    QSpacerItem *verticalSpacer;
     QLabel *LabelBarcodeNum;
+    QSpacerItem *verticalSpacer;
     QPushButton *ButtonBatchAdd;
-    QPushButton *ButtonBatchDelete;
-    QPushButton *ButtonShow;
     QTableWidget *tableWidget;
+    QPushButton *ButtonBatchDelete;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -52,7 +52,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(559, 306);
+        MainWindow->resize(599, 335);
         actionConnect = new QAction(MainWindow);
         actionConnect->setObjectName(QStringLiteral("actionConnect"));
         actionDisconnect = new QAction(MainWindow);
@@ -69,6 +69,17 @@ public:
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
+        LabelState = new QLabel(centralWidget);
+        LabelState->setObjectName(QStringLiteral("LabelState"));
+        LabelState->setAlignment(Qt::AlignCenter);
+
+        gridLayout_2->addWidget(LabelState, 1, 0, 1, 2);
+
+        ButtonShow = new QPushButton(centralWidget);
+        ButtonShow->setObjectName(QStringLiteral("ButtonShow"));
+
+        gridLayout_2->addWidget(ButtonShow, 0, 2, 1, 1);
+
         ButtonAdd = new QPushButton(centralWidget);
         ButtonAdd->setObjectName(QStringLiteral("ButtonAdd"));
 
@@ -79,40 +90,27 @@ public:
 
         gridLayout_2->addWidget(ButtonDelete, 0, 1, 1, 1);
 
-        LabelState = new QLabel(centralWidget);
-        LabelState->setObjectName(QStringLiteral("LabelState"));
-        LabelState->setAlignment(Qt::AlignCenter);
-
-        gridLayout_2->addWidget(LabelState, 1, 0, 1, 2);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer, 3, 0, 1, 2);
-
         LabelBarcodeNum = new QLabel(centralWidget);
         LabelBarcodeNum->setObjectName(QStringLiteral("LabelBarcodeNum"));
         QFont font;
-        font.setPointSize(10);
+        font.setFamily(QStringLiteral("C39HrP24DhTt"));
+        font.setPointSize(30);
+        font.setBold(false);
+        font.setWeight(50);
         LabelBarcodeNum->setFont(font);
         LabelBarcodeNum->setAlignment(Qt::AlignCenter);
 
         gridLayout_2->addWidget(LabelBarcodeNum, 2, 0, 1, 2);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer, 3, 0, 1, 2);
 
         ButtonBatchAdd = new QPushButton(centralWidget);
         ButtonBatchAdd->setObjectName(QStringLiteral("ButtonBatchAdd"));
         ButtonBatchAdd->setMinimumSize(QSize(210, 0));
 
         gridLayout_2->addWidget(ButtonBatchAdd, 4, 0, 1, 2);
-
-        ButtonBatchDelete = new QPushButton(centralWidget);
-        ButtonBatchDelete->setObjectName(QStringLiteral("ButtonBatchDelete"));
-
-        gridLayout_2->addWidget(ButtonBatchDelete, 5, 0, 1, 2);
-
-        ButtonShow = new QPushButton(centralWidget);
-        ButtonShow->setObjectName(QStringLiteral("ButtonShow"));
-
-        gridLayout_2->addWidget(ButtonShow, 0, 2, 1, 1);
 
         tableWidget = new QTableWidget(centralWidget);
         if (tableWidget->columnCount() < 2)
@@ -124,9 +122,19 @@ public:
         if (tableWidget->rowCount() < 1)
             tableWidget->setRowCount(1);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(3);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy);
         tableWidget->setRowCount(1);
 
         gridLayout_2->addWidget(tableWidget, 1, 2, 5, 1);
+
+        ButtonBatchDelete = new QPushButton(centralWidget);
+        ButtonBatchDelete->setObjectName(QStringLiteral("ButtonBatchDelete"));
+
+        gridLayout_2->addWidget(ButtonBatchDelete, 5, 0, 1, 2);
 
 
         horizontalLayout->addLayout(gridLayout_2);
@@ -166,17 +174,17 @@ public:
         actionConfigure->setToolTip(QApplication::translate("MainWindow", "Configure", 0));
 #endif // QT_NO_TOOLTIP
         actionConfigure->setShortcut(QApplication::translate("MainWindow", "Ctrl+C", 0));
+        LabelState->setText(QApplication::translate("MainWindow", "Bereit", 0));
+        ButtonShow->setText(QApplication::translate("MainWindow", "Show Database", 0));
         ButtonAdd->setText(QApplication::translate("MainWindow", "Add to database", 0));
         ButtonDelete->setText(QApplication::translate("MainWindow", "Delete from Database", 0));
-        LabelState->setText(QApplication::translate("MainWindow", "Bereit", 0));
         LabelBarcodeNum->setText(QString());
         ButtonBatchAdd->setText(QApplication::translate("MainWindow", "BatchAdd", 0));
-        ButtonBatchDelete->setText(QApplication::translate("MainWindow", "BatchDelete", 0));
-        ButtonShow->setText(QApplication::translate("MainWindow", "Show Database", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Barcode", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Quantity", 0));
+        ButtonBatchDelete->setText(QApplication::translate("MainWindow", "BatchDelete", 0));
     } // retranslateUi
 
 };

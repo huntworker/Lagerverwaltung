@@ -36,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(serial, SIGNAL(readyRead()), this, SLOT(readData()));
 
     database->showDatabase(ui->tableWidget);
-
 }
 
 MainWindow::~MainWindow()
