@@ -7,29 +7,12 @@ using namespace std;
 
 Cdatabase::Cdatabase()
 {
-    //file = new QFile("database.csv");
-    //tempFile = new QFile("tempDatabase.csv");
-    //QFile file("test.txt");
-    //if(file->open(QIODevice::ReadWrite))
-    //{
-    //    // Öffnen erfolgreich
-    //}
-    //if(tempFile->open(QIODevice::ReadWrite))
-    //    // öffnen erfolgreich
-    //
-    //FileStream = new QTextStream(file);
-    //tempFileStream = new QTextStream(tempFile);
+
 }
 
 Cdatabase::~Cdatabase()
 {
-    //file->close();
-    //tempFile->close();
-    //tempFile->remove();
-    //delete file;
-    //delete FileStream;
-    //delete tempFileStream;
-    //delete tempFile;
+
 }
 
 void Cdatabase::itemAdd(QString barcode, int quantity)
@@ -38,6 +21,7 @@ void Cdatabase::itemAdd(QString barcode, int quantity)
     QString inQuantity = 0;
     bool barcodeFound = false;
     int newQuantity = 0;
+    int32_t linecount = 0;
 
     file = new QFile("database.csv");
     tempFile = new QFile("tempDatabase.csv");
@@ -76,12 +60,11 @@ void Cdatabase::itemAdd(QString barcode, int quantity)
             *tempFileStream << inBuffer << endl;
         }
 
+        linecount++;
     } while (!file->atEnd());
 
     if (!barcodeFound)
         *tempFileStream << barcode << ',' << quantity << endl;
-
-    //cout << "Barcode: " << inBarcode << ", Quantity: " << inQuantity << endl;
 
     file->close();
     tempFile->close();
@@ -147,9 +130,7 @@ void Cdatabase::itemDelete(QString barcode, int quantity)
     } while (!file->atEnd());
 
     if (!barcodeFound)
-        // Fehler: versuche Artikel zu löschen, welches nicht vorhanden
-
-    //cout << "Barcode: " << inBarcode << ", Quantity: " << inQuantity << endl;
+        // TODO: Fehler: versuche Artikel zu löschen, welches nicht vorhanden
 
     file->close();
     tempFile->close();
