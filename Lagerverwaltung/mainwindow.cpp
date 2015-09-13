@@ -109,7 +109,7 @@ void MainWindow::RxBuffer(QString rx)
 
     if (buffer.endsWith('\n'))
     {
-        buffer.chop(1);     // delete 1 last char of string ('\n')
+        buffer.chop(1);                         // delete 1 last char of string ('\n')
         ui->LabelBarcodeNum->setText(buffer);
         lastBarcode = buffer;
         buffer.clear();
@@ -134,7 +134,6 @@ void MainWindow::initActionsConnections()
 
 void MainWindow::on_ButtonAdd_clicked()
 {
-    // ui->tableWidget->setItem(0, 0, new QTableWidgetItem(lastBarcode));
     if(!lastBarcode.isEmpty())
     {
         database->itemAdd(lastBarcode, 1);
@@ -175,11 +174,11 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 
     if (column != 0)
     {
-        ui->tableWidget->setCurrentCell(row,0);         // Zellenauswahl auf Barcode versetzen
+        ui->tableWidget->setCurrentCell(row,0);                 // Zellenauswahl auf Barcode versetzen
     }
 
-    ui->LabelBarcodeNum->setText(clickedBarcode);       // geklickten Barcode anzeigen
-    lastBarcode = clickedBarcode;                       // und als letzten Barcode festlegen
+    ui->LabelBarcodeNum->setText(clickedBarcode);               // geklickten Barcode anzeigen
+    lastBarcode = clickedBarcode;                               // und als letzten Barcode festlegen
 
 }
 
