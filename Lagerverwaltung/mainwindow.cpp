@@ -103,11 +103,7 @@ void MainWindow::writeData(const QByteArray &data)
 
 void MainWindow::readData()
 {
-    QString text;
-
-    text = serial->readLine(255);
-
-    RxBuffer(text);
+    RxBuffer(serial->readLine(255));
 }
 
 void MainWindow::RxBuffer(QString rx)
