@@ -182,7 +182,7 @@ public:
 
     void retranslateUi(QDialog *SettingsDialog)
     {
-        SettingsDialog->setWindowTitle(QApplication::translate("SettingsDialog", "Settings", 0));
+        SettingsDialog->setWindowTitle(QApplication::translate("SettingsDialog", "Einstellungen", 0));
         parametersBox->setTitle(QApplication::translate("SettingsDialog", "Select Parameters", 0));
         baudRateLabel->setText(QApplication::translate("SettingsDialog", "BaudRate:", 0));
         dataBitsLabel->setText(QApplication::translate("SettingsDialog", "Data bits:", 0));
