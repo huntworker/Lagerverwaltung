@@ -117,6 +117,10 @@ void MainWindow::RxBuffer(QString rx)
         buffer.chop(1);                         // delete 1 last char of string ('\n')
         ui->LabelBarcodeNum->setText(buffer);
         lastBarcode = buffer;
+        if (readingMode == ModeAdd)
+            on_ButtonAdd_clicked();
+        else if (readingMode == ModeDelete)
+            on_ButtonDelete_clicked();
         buffer.clear();
     }
 }
