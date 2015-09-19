@@ -177,6 +177,8 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 
     clickedBarcode = ui->tableWidget->item(row,0)->text();      // geklickten Barcode speichern
 
+    ui->LabelState->setText("Bereit");
+
     if (column != 0)
     {
         ui->tableWidget->setCurrentCell(row,0);                 // Zellenauswahl auf Barcode versetzen
