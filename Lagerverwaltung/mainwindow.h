@@ -1,7 +1,7 @@
 /*! \file mainwindow.h
- *  \brief Header filer for class MainWindow.
+ *  \brief Header file for class MainWindow.
  *
- *  MainWindow initializes all settings concerning the
+ *  MainWindow initializes all settings regarding the
  *  main user interface window. It also controls the connection
  *  to the barcode scanner via RS232 interface.
  */
@@ -25,9 +25,9 @@
  */
 enum batchMode
 {
-    ModeNormal, /**< an Product is beeing scan an can be add or delete from database. */
-    ModeAdd,    /**< every product beeing scanned will be added to database. */
-    ModeDelete  /**< every product beeing scanned will be deleted from database. */
+    ModeNormal, /**< a scanned product can be added or deleted from database. */
+    ModeAdd,    /**< every product being scanned will be added to database. */
+    ModeDelete  /**< every product being scanned will be deleted from database. */
 };
 
 #ifndef MAINWINDOW_H
@@ -45,10 +45,10 @@ class SettingsDialog;
 class Cdatabase;
 
 /*! \class MainWindow
- *  \brief controlls all IOs and sets up the main user interface.
+ *  \brief controls all IOs and sets up the main user interface.
  *
  *  This class gets all user actions and shows data on MainWindow.
- *  It also controlls and sets up the serial port.
+ *  It also controls and sets up the serial port.
  */
 class MainWindow : public QMainWindow
 {
@@ -77,8 +77,8 @@ private slots:
      * \fn openSerialPort.
      * \brief Sets up serial port.
      * Takes all serial settings from SettingsDialog window and
-     * configures serial port. If connection success, all settings
-     * appear in status bar. Else, the user gets an error message.
+     * configures serial port. If the connection succeeds, all settings
+     * appear in the status bar. Else, the user gets an error message.
      * @return  void
      */
     void openSerialPort();
@@ -111,7 +111,7 @@ private slots:
 
     /**
      * \fn handleError.
-     * \brief is beeing called, if an error with serial port occurs.
+     * \brief is being called, if an error with serial port occurs.
      * If an error with serial port occurs, the user will be informed
      * with an error string in a message box.
      * @param   error
@@ -121,36 +121,36 @@ private slots:
 
     /**
      * \fn on_ButtonAdd_clicked.
-     * \brief is beeing called, if the user clicks on the "add to database"
-     * Button.
-     * Stores the actual barcode in database and shows the new database table.
+     * \brief is being called, if the user clicks on the "add to database"
+     * button.
+     * Stores the current barcode in database and shows the new database table.
      * @return  void
      */
     void on_ButtonAdd_clicked();
 
     /**
      * \fn on_ButtonDelete_clicked.
-     * \brief is beeing called, if the user clicks on the "delete from database"
-     * Button.
-     * Deletes the actual barcode from database and shows the new database table.
+     * \brief is being called, if the user clicks on the "delete from database"
+     * button.
+     * Deletes the current barcode from database and shows the new database table.
      * @return  void
      */
     void on_ButtonDelete_clicked();
 
     /**
      * \fn on_ButtonShow_clicked.
-     * \brief is beeing called, if the user clicks on the "show database"
-     * Button.
-     * Shows the actual database table.
+     * \brief is being called, if the user clicks on the "show database"
+     * button.
+     * Shows the current database table.
      * @return  void
      */
     void on_ButtonShow_clicked();
 
     /**
      * \fn on_tableWidget_cellClicked.
-     * \brief is beeing called, if the user clicks in the database table.
+     * \brief is being called, if the user clicks in the database table.
      * If the clicked cell is empty, the list will be extended by one entry.
-     * The clicked barcode will be applied as actual barcode and displayed
+     * The clicked barcode will be applied as current barcode and displayed
      * in the barcode label.
      * @param   row     specifies the clicked row
      * @param   column  specifies the clicked column
@@ -160,18 +160,18 @@ private slots:
 
     /**
      * \fn on_ButtonBatchAdd_clicked.
-     * \brief is beeing called, if the user clicks on the "BatchAdd"
-     * Button.
-     * Sets the actual reading mode to batchAdd and calls funktion cleanup.
+     * \brief is being called, if the user clicks on the "BatchAdd"
+     * button.
+     * Sets the current reading mode to batchAdd and calls function cleanup.
      * @return  void
      */
     void on_ButtonBatchAdd_clicked();
 
     /**
      * \fn on_ButtonBatchDelete_clicked.
-     * \brief is beeing called, if the user clicks on the "BatchDelete"
-     * Button.
-     * Sets the actual reading mode to batchDelete and calls funktion cleanup.
+     * \brief is being called, if the user clicks on the "BatchDelete"
+     * button.
+     * Sets the current reading mode to batchDelete and calls function cleanup.
      * @return  void
      */
     void on_ButtonBatchDelete_clicked();
@@ -179,14 +179,14 @@ private slots:
 private:
     /**
      * \fn initActionsConnections.
-     * \brief connects menue buttons to corrosponding function.
+     * \brief connects menu buttons to corresponding function.
      * @return  void
      */
     void initActionsConnections();
 
     /**
      * \fn RxBuffer.
-     * \brief is beeing called, if data will be received via serial port.
+     * \brief is being called, if data will be received via serial port.
      * Collects all data until char '\n' is received. If so, the received
      * barcode will be stored and the receive buffer will be cleared.
      * @param   QString  last received data
@@ -209,7 +209,7 @@ private:
 
     /**
      * \var readingMode.
-     * \brief defines the actual reding mode.
+     * \brief defines the current reading mode.
      * @see batchMode
      */
     batchMode readingMode;

@@ -1,9 +1,8 @@
 /*! \file database.h
- *  \brief Header filer for class Cdatabase.
+ *  \brief Header file for class Cdatabase.
  *
- *  Cdatabase creates or use an existing database in .csv
- *  format to store an string connectet with the ammount
- *  in stock.
+ *  Cdatabase creates or uses an existing database in .csv
+ *  format to store a string and its ammount in stock.
  */
 
 #ifndef DATABASE_H
@@ -16,12 +15,12 @@
 
 
 /*! \class Cdatabase
- *  \brief A small Product database based on .csv file.
+ *  \brief A small product database based on .csv file.
  *
- *  Opens or creates an database file in actual folder.
- *  You can add or delete items by giving an string to
+ *  Opens or creates a database file in the current folder.
+ *  You can add or delete items by giving a string to
  *  identify the product and a quantiy to add or delete.
- *  You can also show the whole database.
+ *  You can also display the content of the whole database.
  */
 class Cdatabase
 {
@@ -41,7 +40,7 @@ public:
     /**
      * \fn itemAdd.
      * \brief Adds an item to database.
-     * Is the item already existing, the quantity will be
+     * If the item already exists, the quantity will be
      * increased by @param quantity. If not, the item will
      * be added at the end of the database.
      * @param   barcode    String to identify the product
@@ -53,7 +52,7 @@ public:
     /**
      * \fn itemDelete.
      * \brief Deletes an Item from database.
-     * If the quantity of the searched product less or equal to
+     * If the quantity of the searched product is less or equal to
      * the quantity in the database, the entry will be deleted.
      * @param   barcode    String to identify the product
      * @param   quantity   gives the ammount of products to delete
@@ -63,7 +62,7 @@ public:
 
     /**
      * \fn showDatabase.
-     * \brief Sets entrys in the given QTableWidget to show all entrys
+     * \brief Sets entries in the given QTableWidget to show all entries
      * of the database.
      * @param   table   QTableWidget, in which the database will be shown.
      * @return  void
