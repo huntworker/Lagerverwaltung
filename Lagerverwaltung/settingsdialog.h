@@ -1,7 +1,7 @@
 /*! \file settingsdialog.h
- *  \brief Header filer for class SettingsDialog.
+ *  \brief Header file for class SettingsDialog.
  *
- *  SettingsDialog is beeing called by clicking the settings button
+ *  SettingsDialog is being called by clicking the settings button
  *  on MainWindow. In SettingsDialog you can choose the serial port
  *  to communicate with the barcode scanner.
  */
@@ -26,7 +26,7 @@ QT_END_NAMESPACE
 
 
 /*! \class SettingDialog
- *  \brief sets up an window to make settings for serial port.
+ *  \brief sets up a window to make settings for serial port.
  */
 class SettingsDialog : public QDialog
 {
@@ -68,8 +68,8 @@ public:
 
     /**
      * \fn settings.
-     * \brief Returns actual settings.
-     * @return Settings actual settings.
+     * \brief Returns current settings.
+     * @return Settings current settings.
      */
     Settings settings() const;
 
@@ -91,7 +91,7 @@ private slots:
 
     /**
      * \fn checkCustomBaudRatePolicy.
-     * \brief Checks, if actual baudrate is valid.
+     * \brief Checks, if current baudrate is valid.
      * If baudrate is valid, it can be applied. Else, the
      * input will be ignored.
      * @param  idx  Index of selected COM Port in list.
@@ -101,7 +101,7 @@ private slots:
 
     /**
      * \fn checkCustomDevicePathPolicy.
-     * \brief Checks, if actual device is valid.
+     * \brief Checks, if current device is valid.
      * If device is valid, it can be applied. Else, the
      * input will be ignored.
      * @param  idx  Index of selected COM Port in list.
@@ -145,14 +145,14 @@ private:
 
     /**
      * \var currentSettings.
-     * \brief actualSettings.
-     * Contains actual settings.
+     * \brief current settings.
+     * Contains current settings.
      */
     Settings currentSettings;
 
     /**
      * \var intValidator.
-     * \brief connects to a given String an integer value.
+     * \brief connects to a given string an integer value.
      * Adress will be given in constructor.
      */
     QIntValidator *intValidator;

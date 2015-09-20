@@ -159,7 +159,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Lagerverwaltung", 0));
         actionConnect->setText(QApplication::translate("MainWindow", "C&onnect", 0));
 #ifndef QT_NO_TOOLTIP
         actionConnect->setToolTip(QApplication::translate("MainWindow", "Connect to Serial Port", 0));
