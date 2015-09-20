@@ -148,23 +148,23 @@ void MainWindow::on_ButtonAdd_clicked()
         database->itemAdd(lastBarcode, 1);
     }
     on_ButtonShow_clicked();
-    ui->LabelState->setText("Artikel hinzugefügt");
+    ui->LabelState->setText("Article added");
 }
 
 void MainWindow::on_ButtonDelete_clicked()
 {
     database->itemDelete(lastBarcode, 1);
     on_ButtonShow_clicked();
-    ui->LabelState->setText("Artikel entfernt");
+    ui->LabelState->setText("Article deleted");
 }
 
 void MainWindow::on_ButtonShow_clicked()
 {
-    ui->LabelState->setText("Datenbank wird geladen...");
+    ui->LabelState->setText("Loading database...");
 
     database->showDatabase(ui->tableWidget);
 
-    ui->LabelState->setText("Datenbank geladen!");
+    ui->LabelState->setText("Database successfully loaded!");
 }
 
 void MainWindow::on_tableWidget_cellClicked(int row, int column)
@@ -181,7 +181,7 @@ void MainWindow::on_tableWidget_cellClicked(int row, int column)
 
     clickedBarcode = ui->tableWidget->item(row,0)->text();      // geklickten Barcode speichern
 
-    ui->LabelState->setText("Bereit");
+    ui->LabelState->setText("Ready");
 
     if (column != 0)
     {
@@ -219,21 +219,21 @@ void MainWindow::cleanup()
         {
             ui->ButtonAdd->show();
             ui->ButtonDelete->show();
-            ui->ButtonBatchAdd->setText("BatchAdd");
-            ui->ButtonBatchDelete->setText("BatchDelete");
+            ui->ButtonBatchAdd->setText("Add a batch");
+            ui->ButtonBatchDelete->setText("Delete a batch");
         }; break;
         case ModeAdd:
         {
             ui->ButtonAdd->hide();
             ui->ButtonDelete->hide();
             ui->ButtonBatchAdd->setText("go to normal mode");
-            ui->ButtonBatchDelete->setText("BatchDelete");
+            ui->ButtonBatchDelete->setText("Delete a batch");
         }; break;
         case ModeDelete:
         {
             ui->ButtonAdd->hide();
             ui->ButtonDelete->hide();
-            ui->ButtonBatchAdd->setText("BatchAdd");
+            ui->ButtonBatchAdd->setText("Add a batch");
             ui->ButtonBatchDelete->setText("go to normal mode");
         }; break;
     }

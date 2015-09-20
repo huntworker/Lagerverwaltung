@@ -175,17 +175,17 @@ public:
         actionConfigure->setToolTip(QApplication::translate("MainWindow", "Configure", 0));
 #endif // QT_NO_TOOLTIP
         actionConfigure->setShortcut(QApplication::translate("MainWindow", "Ctrl+C", 0));
-        LabelState->setText(QApplication::translate("MainWindow", "Bereit", 0));
-        ButtonShow->setText(QApplication::translate("MainWindow", "Show Database", 0));
+        LabelState->setText(QApplication::translate("MainWindow", "Ready", 0));
+        ButtonShow->setText(QApplication::translate("MainWindow", "Show database", 0));
         ButtonAdd->setText(QApplication::translate("MainWindow", "Add to database", 0));
-        ButtonDelete->setText(QApplication::translate("MainWindow", "Delete from Database", 0));
+        ButtonDelete->setText(QApplication::translate("MainWindow", "Delete from database", 0));
         LabelBarcodeNum->setText(QString());
-        ButtonBatchAdd->setText(QApplication::translate("MainWindow", "BatchAdd", 0));
+        ButtonBatchAdd->setText(QApplication::translate("MainWindow", "Add a batch", 0));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Barcode", 0));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "Quantity", 0));
-        ButtonBatchDelete->setText(QApplication::translate("MainWindow", "BatchDelete", 0));
+        ButtonBatchDelete->setText(QApplication::translate("MainWindow", "Delete a batch", 0));
     } // retranslateUi
 
 };

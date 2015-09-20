@@ -23,7 +23,7 @@
       <item row="1" column="0" colspan="2">
        <widget class="QLabel" name="LabelState">
         <property name="text">
-         <string>Bereit</string>
+         <string>Ready</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -33,7 +33,7 @@
       <item row="0" column="2">
        <widget class="QPushButton" name="ButtonShow">
         <property name="text">
-         <string>Show Database</string>
+         <string>Show database</string>
         </property>
        </widget>
       </item>
@@ -47,7 +47,7 @@
       <item row="0" column="1">
        <widget class="QPushButton" name="ButtonDelete">
         <property name="text">
-         <string>Delete from Database</string>
+         <string>Delete from database</string>
         </property>
        </widget>
       </item>
@@ -91,7 +91,7 @@
          </size>
         </property>
         <property name="text">
-         <string>BatchAdd</string>
+         <string>Add a batch</string>
         </property>
        </widget>
       </item>
@@ -125,7 +125,7 @@
       <item row="5" column="0" colspan="2">
        <widget class="QPushButton" name="ButtonBatchDelete">
         <property name="text">
-         <string>BatchDelete</string>
+         <string>Delete a batch</string>
         </property>
        </widget>
       </item>
