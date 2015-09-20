@@ -25,7 +25,7 @@ class QIntValidator;
 QT_END_NAMESPACE
 
 
-/*! \class SettingDialog
+/*! \class SettingsDialog
  *  \brief sets up a window to make settings for serial port.
  */
 class SettingsDialog : public QDialog
